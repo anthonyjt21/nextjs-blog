@@ -12,6 +12,7 @@ async function handler(req, res) {
       message.trim() === ''
     ) {
       res.status(422).json({ message: 'Invalid input' });
+ return;
     }
 
     //store in the database
@@ -61,7 +62,7 @@ async function handler(req, res) {
     console.log(newMessage);
     res
       .status(201)
-      .json({ message: 'successfully stored message!', data: newMessage });
+      .json({ message: 'successfully stored message!', message: newMessage });
   }
 }
 export default handler;
